@@ -30,7 +30,6 @@ func (ds *DaySteps) Parse(datastring string) (err error) {
 	if steps <= 0 {
 		return fmt.Errorf("steps can't be equal 0 or less")
 	}
-	ds.Steps = steps
 
 	duration, err := time.ParseDuration(parts[1])
 	if err != nil {
@@ -39,6 +38,8 @@ func (ds *DaySteps) Parse(datastring string) (err error) {
 	if duration <= 0 {
 		return fmt.Errorf("duration can't be equal 0 or less")
 	}
+
+	ds.Steps = steps
 	ds.Duration = duration
 
 	return nil
